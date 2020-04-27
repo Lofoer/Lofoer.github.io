@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="趁着这次疫情在家自己搭建了一个个人博客，针对于 NexT 主题进行了多次优化。下面我将自己搭建的过程记录下来，为想要自己搭建博客的同学提供参考。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="如何创建属于自己的个人博客-实战篇">
+<meta property="og:url" content="http://yoursite.com/2020/04/27/create-blog/index.html">
+<meta property="og:site_name" content="季银灿 | Lofoer">
+<meta property="og:description" content="趁着这次疫情在家自己搭建了一个个人博客，针对于 NexT 主题进行了多次优化。下面我将自己搭建的过程记录下来，为想要自己搭建博客的同学提供参考。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://yoursite.com/2020/04/27/create-blog/add_sshkey.png">
+<meta property="og:image" content="http://yoursite.com/2020/04/27/create-blog/hello_hexo.png">
+<meta property="og:image" content="http://yoursite.com/2020/04/27/create-blog/hexo_command.png">
+<meta property="og:image" content="http://yoursite.com/2020/04/27/create-blog/next_config.png">
+<meta property="og:image" content="http://yoursite.com/2020/04/27/create-blog/social_config.png">
+<meta property="og:image" content="http://yoursite.com/2020/04/27/create-blog/links_config.png">
+<meta property="og:image" content="http://yoursite.com/2020/04/27/create-blog/upload_img.png">
+<meta property="og:image" content="http://yoursite.com/2020/04/27/create-blog/upload_image_example.png">
+<meta property="og:image" content="http://yoursite.com/2020/04/27/create-blog/update_css_font_config.png">
+<meta property="og:image" content="http://yoursite.com/2020/04/27/create-blog/hexo_blog_img.png">
+<meta property="article:published_time" content="2020-04-27T02:37:29.000Z">
+<meta property="article:modified_time" content="2020-04-27T05:19:29.121Z">
+<meta property="article:author" content="季银灿 | Lofoer">
+<meta property="article:tag" content="hexo">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/2020/04/27/create-blog/add_sshkey.png">
+
+<link rel="canonical" href="http://yoursite.com/2020/04/27/create-blog/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>如何创建属于自己的个人博客-实战篇 | 季银灿 | Lofoer</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">季银灿 | Lofoer</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">学一门杂学</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>文章</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-funds">
+
+    <a href="/funds/" rel="section"><i class="fa fa-user fa-fw"></i>基金</a>
+
+  </li>
+        <li class="menu-item menu-item-stock">
+
+    <a href="/stock/" rel="section"><i class="fa fa-user fa-fw"></i>股票</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+  <a href="https://github.com/Lofoer" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/27/create-blog/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="季银灿 | Lofoer">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="季银灿 | Lofoer">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          如何创建属于自己的个人博客-实战篇
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-04-27 10:37:29 / 修改时间：13:19:29" itemprop="dateCreated datePublished" datetime="2020-04-27T10:37:29+08:00">2020-04-27</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/" itemprop="url" rel="index"><span itemprop="name">搭建博客</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">评论数：</span>
+    
+    <a title="valine" href="/2020/04/27/create-blog/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/04/27/create-blog/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>9.3k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>8 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>趁着这次疫情在家自己搭建了一个个人博客，针对于 NexT 主题进行了多次优化。下面我将自己搭建的过程记录下来，为想要自己搭建博客的同学提供参考。</p>
+<a id="more"></a>
+
+<h3 id="1-开始搭建我们的博客"><a href="#1-开始搭建我们的博客" class="headerlink" title="1. 开始搭建我们的博客"></a>1. 开始搭建我们的博客</h3><ol>
+<li><p>准备条件</p>
+<p>首先我们得需要自己注册一个 Github 账号，地址为：<a href="https://github.com/" target="_blank" rel="noopener">GitHub</a> ， GitHub Pages 帮助我们来架设一个静态网站，这就解决了服务器的问题。</p>
+<p>Hexo 这个是一个博客框架，号称是一个快速，简单和签那个大的博客框架。事实也是证明如此。</p>
+</li>
+<li><p>新建项目</p>
+<p>在 GitHub 上建立一个<a href="https://github.com/new" target="_blank" rel="noopener">仓库 </a>，Repository name 初填写 {username}.github.io ，假设你的账户名师 zhangsan，那么这里就是 zhangsan.github.io 。必须以 github.io 为后缀结尾。</p>
+</li>
+<li><p>在 GitHub 上配置 SSH Key</p>
+<p>生成本地密钥：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen</span><br></pre></td></tr></table></figure>
+
+<p>进入到本地密钥的存放路径：/Users/ 用户名 /.ssh/ ，公钥存放在 id_rsa 文件中；</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat id_rsa</span><br></pre></td></tr></table></figure>
+
+<p>复制 shh 公钥，添加到 GitHub 中去。</p>
+<img src="/2020/04/27/create-blog/add_sshkey.png" alt="ssh公钥配置" style="zoom:35%;">
+</li>
+<li><p>安装环境 Node 、Hexo</p>
+<p><strong>安装Node.js</strong></p>
+<p>首先在自己的电脑上安装 Node.js，下载地址：<a href="https://nodejs.org/zh-cn/download/，可以安装" target="_blank" rel="noopener">https://nodejs.org/zh-cn/download/，可以安装</a> Stable 版本。</p>
+<p>安装完毕之后，确保环境变量配置好，能正常使用 <code>npm</code> 命令。</p>
+<p><strong>安装Hexo</strong></p>
+<p>接下来就需要安装 Hexo 了，这是一个博客框架，Hexo 官方还提供了一个命令行工具，用于快速创建项目、页面、编译、部署 Hexo 博客，所以在这之前我们需要先安装 Hexo 的命令行工具。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>初始化项目</p>
+<p>接下来我们使用 Hexo 的命令行创建一个项目，并将其在本地跑起来，整体跑通看看。</p>
+<p>首先使用如下命令创建项目：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init &#123;name&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这里的 name 就是我们的项目名称，我们这里要创建为项目名为 Blog 的博客，命令如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init blog</span><br></pre></td></tr></table></figure>
+
+<p>这样我们的文件夹下面就会有 Hexo 的初始化文件。</p>
+<p>接下来我们首先进入新生成的文件夹里面，然后调用 Hexo 的 generate 命令，将 Hexo 编译生成 HTML 代码，命令如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>这里也可以使用 hexo g 来简写。然后我们利用 Hexo 提供的 server 命令把博客在本地运行起来。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo server</span><br></pre></td></tr></table></figure>
+
+<p>输出结果：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">INFO  Start processing</span><br><span class="line">INFO  Hexo is running at http:&#x2F;&#x2F;localhost:4000 . Press Ctrl+C to stop.</span><br></pre></td></tr></table></figure>
+
+<p>此时访问 <a href="http://localhost:4000/" target="_blank" rel="noopener">http://localhost:4000</a> 即可显示出 Hexo 默认的主题信息博客。</p>
+<img src="/2020/04/27/create-blog/hello_hexo.png" alt="hexo_index" style="zoom:50%;">
+
+<p>那么此时我们的博客架子就已经出来了。这里关于生成和本地预览可以使用命令 <code>hexo s -g</code></p>
+</li>
+<li><p><strong>常用的Hexo命令</strong></p>
+<img src="/2020/04/27/create-blog/hexo_command.png" alt="hexo_command" style="zoom:50%;">
+</li>
+<li><p>选择 Hexo 主题：NexT</p>
+<p>关于主题目前 GitHub 上有两个版本的 NexT 主题</p>
+<p>a：git clone <a href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="noopener">https://github.com/iissnan/hexo-theme-next</a> themes/next</p>
+<p>b：git clone <a href="https://github.com/theme-next/hexo-theme-next" target="_blank" rel="noopener">https://github.com/theme-next/hexo-theme-next</a> themes/next</p>
+<p>第二个是目前 NexT 的官方版本，会持续进行更新，所以我选择的是这个版本，关于对于 NexT 中的个性化设置也是基于此版本进行的。所以推荐你使用第二个版本。</p>
+<p>进入到项目文件夹 blog 中 <code>cd blog</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https:&#x2F;&#x2F;github.com&#x2F;theme-next&#x2F;hexo-theme-next themes&#x2F;next</span><br></pre></td></tr></table></figure>
+
+<p>执行完毕后在 themes 文件下，有一个 next 的主题文件。</p>
+<p>修改我们项目目录下的配置文件_config.yml 文件，找到 theme 字段，修改为 next 即可，修改如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">theme: next</span><br></pre></td></tr></table></figure>
+
+<p>执行：<code>hexo s -g</code> 即可生成静态页面至 public 目录下，并且可以进行本地预览。</p>
+</li>
+</ol>
+<pre><code>那么到此我们的第一步就已经完成了，喝口水，休息下，让我们来准备好下一步的配置吧。</code></pre><h3 id="2-个性化设置-NexT"><a href="#2-个性化设置-NexT" class="headerlink" title="2. 个性化设置 NexT"></a>2. 个性化设置 NexT</h3><p>​        <strong>修改前需要对项目配置文件和主题配置文件有一定的了解</strong></p>
+<p>​        我们针对于主题的个性话设置全在主题的配合文件下</p>
+<p>​        <img src="/2020/04/27/create-blog/next_config.png" alt="next_config" style="zoom:50%;"></p>
+<ol>
+<li><p>选择NexT的样式 <code>Scheme Settings</code> scheme: Pisces <code>sidebar:</code> position: left</p>
+</li>
+<li><p>代码块调整 <code>codeblock</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">codeblock: # 代码块特效</span><br><span class="line">  # Code Highlight theme</span><br><span class="line">  # Available values: normal | night | night eighties | night blue | night bright | solarized | solarized dark | galactic</span><br><span class="line">  # See: https:&#x2F;&#x2F;github.com&#x2F;chriskempson&#x2F;tomorrow-theme</span><br><span class="line">  highlight_theme: night bright</span><br><span class="line">  # Add copy button on codeblock</span><br><span class="line">  copy_button:</span><br><span class="line">    enable: true</span><br><span class="line">    # Show text copy result.</span><br><span class="line">    show_result: true</span><br><span class="line">    # Available values: default | flat | mac</span><br><span class="line">    style: mac</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>阅读进度百分比</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">back2top:</span><br><span class="line">  enable: true</span><br><span class="line">  # Back to top in sidebar.</span><br><span class="line">  sidebar: false</span><br><span class="line">  # Scroll percent label in b2t button.</span><br><span class="line">  scrollpercent: true #显示阅读百分比</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>github_banner 显示</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">github_banner:</span><br><span class="line">  enable: true</span><br><span class="line">  permalink: https:&#x2F;&#x2F;github.com&#x2F;Lofoer</span><br><span class="line">  title: Follow me on GitHub</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+<ol start="5">
+<li><p>添加Valine评论 <a href="https://leancloud.cn/dashboard/applist.html#/apps" target="_blank" rel="noopener">https://leancloud.cn/dashboard/applist.html#/apps</a></p>
+<p>为什么会选择这个评论呢，一个方面就是界面简单，第二个就是配置起来也超级方便，因为我们的博客是静态博客，那么对于评论的数据来说是动态的，需要存储的，那么我们就需要借助一个平台来存储评论，这个时候我们通过 LeanCloud 这个网站来进行，注册应用后，会有 appkey &amp; appid 我们只需要添加授权码和 ID 我们的博客就有评论的功能了。非常简单。</p>
+</li>
+</ol>
+<ol start="6">
+<li><p>添加标签页</p>
+<p>标签页这里我们用使用 <code>hexo new page tags</code> 来创建一个标签页，配置完成过后使用 Makedown 的编译器进行编译</p>
+<p>如果你对 Makedown 不了解的话，那么先百度下啦。这里的编译器我推荐用 <code>Typora</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: tags</span><br><span class="line">date: 2020-04-19 01:23:51</span><br><span class="line">type: tags</span><br><span class="line">comments: false</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+<ol start="7">
+<li><p>添加搜索功能 hexo-generator-searchdb</p>
+<p>搜索页需要安装一个插件叫做：hexo-generator-searchdb</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-generator-searchdb --save</span><br></pre></td></tr></table></figure>
+
+<p>在我们的项目<strong>hexo_config</strong>目录下配置如下内容：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">search:</span><br><span class="line">path: search.xml</span><br><span class="line">field: post</span><br><span class="line">format: html</span><br><span class="line">limit: 10000</span><br></pre></td></tr></table></figure>
+
+<p>主题<strong>next_config</strong>的配置文件下修改：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"># Local Search</span><br><span class="line"># Dependencies: https:&#x2F;&#x2F;github.com&#x2F;theme-next&#x2F;hexo-generator-searchdb</span><br><span class="line">local_search:</span><br><span class="line">  enable: true</span><br><span class="line">  # If auto, trigger search by changing input.</span><br><span class="line">  # If manual, trigger search by pressing enter key or search button.</span><br><span class="line">  trigger: auto</span><br><span class="line">  # Show top n results per article, show all results by setting to -1</span><br><span class="line">  top_n_per_article: 1</span><br><span class="line">  # Unescape html strings to the readable one.</span><br><span class="line">  unescape: false</span><br><span class="line">  # Preload the search data when the page loads.</span><br><span class="line">  preload: false</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+<ol start="8">
+<li><p>侧边栏社交链接 &amp; 友情链接</p>
+<img src="/2020/04/27/create-blog/social_config.png" alt="social" style="zoom:38%;">
+
+<img src="/2020/04/27/create-blog/links_config.png" alt="links" style="zoom:50%;">
+</li>
+<li><p>显示评论数</p>
+<p>打开 <code>themes -&gt; next -&gt; languages -&gt; zh-CN.yml</code> 在 POST 标签下 comments.valine: 评论数 #可以自定义</p>
+</li>
+</ol>
+<ol start="10">
+<li><p>添加阅读时长 <code>npm install hexo-symbols-count-time</code></p>
+<p>在我们的项目<strong>hexo_config</strong>目录下配置如下内容：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"># 阅读时长</span><br><span class="line">symbols_count_time:</span><br><span class="line">symbols: true</span><br><span class="line">time: true</span><br><span class="line">total_symbols: true</span><br><span class="line">total_time: true</span><br><span class="line">exclude_codeblock: false</span><br><span class="line">awl: 2</span><br><span class="line">wpm: 275</span><br><span class="line">suffix: &quot;mins.&quot;</span><br></pre></td></tr></table></figure>
+
+<p>主题<strong>next_config</strong>的配置文件下修改：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># Dependencies: https:&#x2F;&#x2F;github.com&#x2F;theme-next&#x2F;hexo-symbols-count-time</span><br><span class="line">symbols_count_time:</span><br><span class="line">  separated_meta: true</span><br><span class="line">  item_text_post: true</span><br><span class="line">  item_text_total: false</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+<ol start="11">
+<li><p>打赏</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">reward:</span><br><span class="line">  wechatpay: &#x2F;images&#x2F;wechatpay.jpeg</span><br><span class="line">  #alipay: &#x2F;images&#x2F;alipay.png</span><br><span class="line">  #paypal: &#x2F;images&#x2F;paypal.png</span><br><span class="line">  #bitcoin: &#x2F;images&#x2F;bitcoin.png</span><br><span class="line"> </span><br><span class="line"> reward_settings:</span><br><span class="line">  # If true, reward will be displayed in every article by default.</span><br><span class="line">  enable: true</span><br><span class="line">  animation: false</span><br><span class="line">  comment: 您的支持将鼓励我继续创作！</span><br></pre></td></tr></table></figure>
+
+<p>打赏设置 <code>comment</code> 是打赏的提示语，打赏的图片可以放在主题的 images 下。</p>
+</li>
+<li><p>图片显示</p>
+<p>图片显示，目前有很多是通过第三方的图片云来进行图片的存储，但是目前我这里是通过 Hexo 插件把图片上传到 GitHub 上进行显示的，从效率上看，使用 Makedown 来添加本地照片就能显示。下面就开始放大招具体说说怎么做。</p>
+<p><strong>第一步安装插件</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-asset-image --save</span><br></pre></td></tr></table></figure>
+
+<p><strong>第二步打开 Hexo 配置文件</strong>_config.yml</p>
+<p> 找到 post_asset_folder，把这个选项从 false 改为 true</p>
+<p><strong>第三步修改 index.js 文件</strong></p>
+<p>/node_modules/hexo-asset-image/index.js js 文件 替换如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"> &#39;use strict&#39;;</span><br><span class="line">var cheerio &#x3D; require(&#39;cheerio&#39;);</span><br><span class="line">     </span><br><span class="line">     &#x2F;&#x2F; http:&#x2F;&#x2F;stackoverflow.com&#x2F;questions&#x2F;14480345&#x2F;how-to-get-the-nth-occurrence-in-a-string</span><br><span class="line">     function getPosition(str, m, i) &#123;</span><br><span class="line">     return str.split(m, i).join(m).length;</span><br><span class="line">&#125;</span><br><span class="line">     </span><br><span class="line">     var version &#x3D; String(hexo.version).split(&#39;.&#39;);</span><br><span class="line">     hexo.extend.filter.register(&#39;after_post_render&#39;, function(data)&#123;</span><br><span class="line">     var config &#x3D; hexo.config;</span><br><span class="line">     if(config.post_asset_folder)&#123;</span><br><span class="line">             var link &#x3D; data.permalink;</span><br><span class="line">         if(version.length &gt; 0 &amp;&amp; Number(version[0]) &#x3D;&#x3D; 3)</span><br><span class="line">         var beginPos &#x3D; getPosition(link, &#39;&#x2F;&#39;, 1) + 1;</span><br><span class="line">         else</span><br><span class="line">         var beginPos &#x3D; getPosition(link, &#39;&#x2F;&#39;, 3) + 1;</span><br><span class="line">         &#x2F;&#x2F; In hexo 3.1.1, the permalink of &quot;about&quot; page is like &quot;...&#x2F;about&#x2F;index.html&quot;.</span><br><span class="line">         var endPos &#x3D; link.lastIndexOf(&#39;&#x2F;&#39;) + 1;</span><br><span class="line">    link &#x3D; link.substring(beginPos, endPos);</span><br><span class="line">     </span><br><span class="line">         var toprocess &#x3D; [&#39;excerpt&#39;, &#39;more&#39;, &#39;content&#39;];</span><br><span class="line">         for(var i &#x3D; 0; i &lt; toprocess.length; i++)&#123;</span><br><span class="line">         var key &#x3D; toprocess[i];</span><br><span class="line">     </span><br><span class="line">         var $ &#x3D; cheerio.load(data[key], &#123;</span><br><span class="line">             ignoreWhitespace: false,</span><br><span class="line">             xmlMode: false,</span><br><span class="line">             lowerCaseTags: false,</span><br><span class="line">             decodeEntities: false</span><br><span class="line">    &#125;);</span><br><span class="line">     </span><br><span class="line">         $(&#39;img&#39;).each(function()&#123;</span><br><span class="line">             if ($(this).attr(&#39;src&#39;))&#123;</span><br><span class="line">                 &#x2F;&#x2F; For windows style path, we replace &#39;\&#39; to &#39;&#x2F;&#39;.</span><br><span class="line">                 var src &#x3D; $(this).attr(&#39;src&#39;).replace(&#39;\\&#39;, &#39;&#x2F;&#39;);</span><br><span class="line">                 if(!&#x2F;http[s]*.*|\&#x2F;\&#x2F;.*&#x2F;.test(src) &amp;&amp;</span><br><span class="line">                 !&#x2F;^\s*\&#x2F;&#x2F;.test(src)) &#123;</span><br><span class="line">                 &#x2F;&#x2F; For &quot;about&quot; page, the first part of &quot;src&quot; can&#39;t be removed.</span><br><span class="line">                 &#x2F;&#x2F; In addition, to support multi-level local directory.</span><br><span class="line">                 var linkArray &#x3D; link.split(&#39;&#x2F;&#39;).filter(function(elem)&#123;</span><br><span class="line">                     return elem !&#x3D; &#39;&#39;;</span><br><span class="line">                 &#125;);</span><br><span class="line">                 var srcArray &#x3D; src.split(&#39;&#x2F;&#39;).filter(function(elem)&#123;</span><br><span class="line">                     return elem !&#x3D; &#39;&#39; &amp;&amp; elem !&#x3D; &#39;.&#39;;</span><br><span class="line">                 &#125;);</span><br><span class="line">                 if(srcArray.length &gt; 1)</span><br><span class="line">                     srcArray.shift();</span><br><span class="line">                 src &#x3D; srcArray.join(&#39;&#x2F;&#39;);</span><br><span class="line">                 $(this).attr(&#39;src&#39;, config.root + link + src);</span><br><span class="line">                 console.info&amp;&amp;console.info(&quot;update link as:--&gt;&quot;+config.root + link + src);</span><br><span class="line">                 &#125;</span><br><span class="line">             &#125;else&#123;</span><br><span class="line">                 console.info&amp;&amp;console.info(&quot;no src attr, skipped...&quot;);</span><br><span class="line">                 console.info&amp;&amp;console.info($(this));</span><br><span class="line">             &#125;</span><br><span class="line">         &#125;);</span><br><span class="line">         data[key] &#x3D; $.html();</span><br><span class="line">         &#125;</span><br><span class="line">     &#125;</span><br><span class="line">     &#125;);</span><br></pre></td></tr></table></figure>
+
+<p><strong>第四步使用</strong></p>
+<p>当我们使用 hexo 命令新建一篇文章时</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new 文章名</span><br></pre></td></tr></table></figure>
+
+<p>在 source/_posts 文件下会生成一个后缀为.md 的文件和一个文章名的文件夹，我们在这个里面上传图片。</p>
+<p><strong>第五步使用图片</strong></p>
+<p>在 Makedown 中引用图片时候，注意文件路径节点是用文章名开头的相对路径，并不是图片的绝对路径，这里一定要注意。</p>
+<img src="/2020/04/27/create-blog/upload_img.png" alt="create_blog_solurl" style="zoom:60%;">
+
+<img src="/2020/04/27/create-blog/upload_image_example.png" style="zoom:50%;">
+
+<p><strong>图片使用相对于当前文件夹的图片路径。</strong></p>
+</li>
+</ol>
+<ol start="13">
+<li><p>修改详情文章的tag图标</p>
+<p>修改模板 <code>/themes/next/layout/_macro/post.swig</code>，搜索`，把#号替换成为 {i class=”fa fa-tags”}{/i} ‘{}’ -&gt; 替换为’&lt;&gt;’</p>
+</li>
+</ol>
+<ol start="14">
+<li><p>全局调整字体大小  themes\next\source\css_variables<code>下的</code>base.styl</p>
+<p>具体的修改内容如下：有需要的可以自行调整。</p>
+<img src="/2020/04/27/create-blog/update_css_font_config.png" style="zoom:50%;">
+
+<p>到此为止的话，我们关于 NexT 的这个主题的个性化修改目前就到这里了，目前的这个阶段已经完全满足了我们的博客的内容展示。后续的一定内容请一定要参考官方的修改配置</p>
+</li>
+<li><p>取消文章目录的归纳数字</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">toc:</span><br><span class="line">  enable: true</span><br><span class="line">  # Automatically add list number to toc.</span><br><span class="line">  number: false</span><br><span class="line">  # If true, all words will placed on next lines if header width longer then sidebar width.</span><br><span class="line">  wrap: false</span><br><span class="line">  # If true, all level of TOC in a post will be displayed, rather than the activated part of it.</span><br><span class="line">  expand_all: false</span><br><span class="line">  # Maximum heading depth of generated toc.</span><br><span class="line">  max_depth: 6</span><br></pre></td></tr></table></figure>
+
+<p>将number: 属性的true 改为 false。</p>
+</li>
+</ol>
+<h3 id="3-ToDoList："><a href="#3-ToDoList：" class="headerlink" title="3. ToDoList："></a>3. ToDoList：</h3><ul>
+<li><input disabled type="checkbox"> 待验证文章页面展示是否有效</li>
+<li><input disabled type="checkbox"> 自定义域名 &amp; 域名访问</li>
+</ul>
+<h3 id="4-部署到GitHub上"><a href="#4-部署到GitHub上" class="headerlink" title="4. 部署到GitHub上"></a>4. 部署到GitHub上</h3><ol>
+<li><p>关于部署我们需要知道我们的部署地址：它需要对应 GitHub 的一个仓库地址，这个信息需要我们配置。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># Deployment</span><br><span class="line">## Docs: https:&#x2F;&#x2F;hexo.io&#x2F;docs&#x2F;deployment.html</span><br><span class="line">deploy:</span><br><span class="line">  type: &#39;git&#39;</span><br><span class="line">  repo: https:&#x2F;&#x2F;github.com&#x2F;Lofoer&#x2F;Lofoer.github.io</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
+
+<p>目前这里的 repo，是填写我的，后续需要修改成你们自己的地址。</p>
+</li>
+<li><p>安装 Git 的部署插件：hexo-deployer-git</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+
+<p>安装完成后执行部署命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo d -g</span><br></pre></td></tr></table></figure>
+
+<img src="/2020/04/27/create-blog/hexo_blog_img.png" style="zoom:50%;">
+</li>
+<li><p><strong>设置部署脚本</strong></p>
+<p>在项目文件夹下面新建一个 deploy.sh 的脚本文件，内容如下：   </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo generate</span><br><span class="line">hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>这样我们在部署的时候只需要执行：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sh deploy.sh</span><br></pre></td></tr></table></figure>
+
+<p>这样我们写完博客后可以完美的更新博客了，非常简单。你学会了吗？</p>
+<p><strong>特别说明：</strong> 每当我们完成了一个小的个性化设置的时候，不妨通过hexo命令在本地进行预览<code>hexo s -g</code> 看是否达到了自己的预期。</p>
+</li>
+</ol>
+<h3 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h3><ol>
+<li><p><strong>关于Hexo的问题：</strong></p>
+<p>一般我们在安装hexo 插件的时候不会出现什么问题，但是有时候就是安装不上插件，这个时候一般使我们的源出现了问题，如果你对源不了解，没关系，按照我的操作执行，都能解决。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm config set registry https:&#x2F;&#x2F;registry.npm.taobao.org</span><br></pre></td></tr></table></figure>
+
+<p>或者在安装插件前加上 <strong><code>sudo</code></strong></p>
+</li>
+<li><p>关于4000端口被占用问题：**</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo lsof -i :4000</span><br></pre></td></tr></table></figure>
+
+<p>输出结果为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">COMMAND    PID   USER   FD   TYPE             DEVICE SIZE&#x2F;OFF NODE NAME</span><br><span class="line">Google     796 vivian   24u  IPv6 0x3f05d2f78b8f93ed      0t0  TCP localhost:52958-&gt;localhost:terabase (CLOSE_WAIT)</span><br><span class="line">Google     796 vivian   26u  IPv6 0x3f05d2f78b8f8e2d      0t0  TCP localhost:52959-&gt;localhost:terabase (CLOSE_WAIT)</span><br><span class="line">Google     796 vivian   30u  IPv6 0x3f05d2f78b8fbc2d      0t0  TCP localhost:52960-&gt;localhost:terabase (CLOSE_WAIT)</span><br><span class="line">Google     796 vivian   39u  IPv6 0x3f05d2f79de69e2d      0t0  TCP localhost:52961-&gt;localhost:terabase (CLOSE_WAIT)</span><br><span class="line">Google     796 vivian   61u  IPv6 0x3f05d2f79de6a3ed      0t0  TCP localhost:52962-&gt;localhost:terabase (CLOSE_WAIT)</span><br><span class="line">Google     796 vivian   85u  IPv6 0x3f05d2f79de6af6d      0t0  TCP localhost:52963-&gt;localhost:terabase (CLOSE_WAIT)</span><br><span class="line">node      2658 vivian   39u  IPv6 0x3f05d2f79de6d1ed      0t0  TCP *:terabase (LISTEN)</span><br></pre></td></tr></table></figure>
+
+<p>注意看node，就是这个PID端口 2658，如果释放这个端口？</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kill -9 &#123;PID&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>{PID}</strong> 替换成你的被占用的PID号</p>
+</li>
+</ol>
+<p><strong>结束语：如果您通过我这边文章成功创建了属于自己的个人博客的话，那么不妨通过👇下面的打赏按钮对我进行支持！谢谢。</strong></p>
+
+    </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div>您的支持将鼓励我继续创作！</div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechatpay.jpeg" alt="季银灿 | Lofoer 微信支付">
+        <p>微信支付</p>
+      </div>
+
+  </div>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/hexo/" rel="tag"> <i class="fa fa-tags"></i> hexo</a>
+          </div>
+
+        
+
+
+        
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-开始搭建我们的博客"><span class="nav-text">1. 开始搭建我们的博客</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-个性化设置-NexT"><span class="nav-text">2. 个性化设置 NexT</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-ToDoList："><span class="nav-text">3. ToDoList：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-部署到GitHub上"><span class="nav-text">4. 部署到GitHub上</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常见问题"><span class="nav-text">常见问题</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">季银灿 | Lofoer</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">1</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">分类</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Lofoer" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Lofoer" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:lofoer@163.com" title="E-Mail → mailto:lofoer@163.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="http://chuangzaoshi.com/" title="http:&#x2F;&#x2F;chuangzaoshi.com&#x2F;" rel="noopener" target="_blank">创造狮</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://cn.morningstar.com/main/default.aspx" title="http:&#x2F;&#x2F;cn.morningstar.com&#x2F;main&#x2F;default.aspx" rel="noopener" target="_blank">晨星基金</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://fund.eastmoney.com/" title="https:&#x2F;&#x2F;fund.eastmoney.com&#x2F;" rel="noopener" target="_blank">天天基金</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">季银灿 | Lofoer</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">9k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">8 分钟</span>
+</div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : 'iiXp7xUqTOaoV0IoQfPIi7MQ-gzGzoHsz',
+      appKey     : 'IHwBovtUOpWnLCrN3IkrKwMr',
+      placeholder: "请提交您的问题，如果评论长时间没有回复，请到首页使用邮箱与我取得联系。",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+</body>
+</html>
