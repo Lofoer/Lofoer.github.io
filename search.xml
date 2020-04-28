@@ -251,7 +251,9 @@
 <p><strong>{PID}</strong> 替换成你的被占用的PID号</p>
 </li>
 </ol>
-<p><strong>结束语：如果您通过我这边文章成功创建了属于自己的个人博客的话，那么不妨通过👇下面的打赏按钮对我进行支持！谢谢。</strong></p>
+<p><strong>结束语：如果您通过我这边文章成功创建了属于自己的个人博客的话，那么不妨通过下面的打赏按钮对我进行支持！谢谢。</strong></p>
+<img src="/2020/04/27/create-blog/640.gif" style="zoom:5%;">
+
 ]]></content>
       <categories>
         <category>搭建博客</category>
@@ -259,5 +261,62 @@
       <tags>
         <tag>hexo</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>record_stock</title>
+    <url>/2020/04/28/record-stock/</url>
+    <content><![CDATA[<h3 id="大盘和市场情绪"><a href="#大盘和市场情绪" class="headerlink" title="大盘和市场情绪"></a>大盘和市场情绪</h3><ol>
+<li><p>看大盘和市场情绪，市场情绪看昨日涨跌幅</p>
+<ol>
+<li><p>主看日线级别操作线，日线为主60分钟为辅。</p>
+</li>
+<li><p>日线符合条件，说明中线趋势没有问题，属于可造作阶段，适合没时间盯盘的朋友</p>
+</li>
+<li><p>指标设置【操盘线、SKDJ、成交线120】</p>
+<table>
+<thead>
+<tr>
+<th>日线</th>
+<th>60分钟</th>
+<th>心得体会</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>金叉</td>
+<td>金叉</td>
+<td>好买点</td>
+</tr>
+<tr>
+<td>金叉</td>
+<td>死叉</td>
+<td>上升趋势中的短线高抛点</td>
+</tr>
+<tr>
+<td>死叉</td>
+<td>金叉</td>
+<td>下降趋势中的短线快进快出的点，适合资金复位解套</td>
+</tr>
+<tr>
+<td>死叉</td>
+<td>死叉</td>
+<td>看都不用看</td>
+</tr>
+</tbody></table>
+</li>
+</ol>
+</li>
+<li><p>战法：【涨停回档、大成交金额回档、筹码主升、受伤主力、苍龙出海、资金复位解套法、均量线战法】</p>
+<ol>
+<li><p>涨停回档【暂未测试】</p>
+<p>同花顺选股思路：热点-&gt;涨停分析-&gt;涨停分析排序 ↑ 选择市场热度 加入自选</p>
+<p>涨停板缩量回调，等线上小阴小阳，成交量缩量，买入。操盘线线上小阴买。只做第一波反弹，成功了85%。</p>
+</li>
+<li><p>大成交金额回档</p>
+<p>同花顺板块选股思路：板块 -&gt; 【涨幅】-&gt; <strong>总金额 &gt; 5亿</strong></p>
+</li>
+</ol>
+</li>
+</ol>
+]]></content>
   </entry>
 </search>
