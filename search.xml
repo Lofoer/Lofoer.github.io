@@ -2,6 +2,269 @@
 <search>
   <entry>
     <title>如何创建属于自己的个人博客-实战篇</title>
+    <url>/2020/04/27/2020-4-20-hexo-createblog/</url>
+    <content><![CDATA[<p>趁着这次疫情在家自己搭建了一个个人博客，针对于 NexT 主题进行了多次优化。下面我将自己搭建的过程记录下来，为想要自己搭建博客的同学提供参考。</p>
+<a id="more"></a>
+
+<h3 id="1-开始搭建我们的博客"><a href="#1-开始搭建我们的博客" class="headerlink" title="1. 开始搭建我们的博客"></a>1. 开始搭建我们的博客</h3><ol>
+<li><p>准备条件</p>
+<p>首先我们得需要自己注册一个 Github 账号，地址为：<a href="https://github.com/" target="_blank" rel="noopener">GitHub</a> ， GitHub Pages 帮助我们来架设一个静态网站，这就解决了服务器的问题。</p>
+<p>Hexo 这个是一个博客框架，号称是一个快速，简单和签那个大的博客框架。事实也是证明如此。</p>
+</li>
+<li><p>新建项目</p>
+<p>在 GitHub 上建立一个<a href="https://github.com/new" target="_blank" rel="noopener">仓库 </a>，Repository name 初填写 {username}.github.io ，假设你的账户名师 zhangsan，那么这里就是 zhangsan.github.io 。必须以 github.io 为后缀结尾。</p>
+</li>
+<li><p>在 GitHub 上配置 SSH Key</p>
+<p>生成本地密钥：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ssh-keygen</span><br></pre></td></tr></table></figure>
+
+<p>进入到本地密钥的存放路径：/Users/ 用户名 /.ssh/ ，公钥存放在 id_rsa 文件中；</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cat id_rsa</span><br></pre></td></tr></table></figure>
+
+<p>复制 shh 公钥，添加到 GitHub 中去。</p>
+<img src="/2020/04/27/2020-4-20-hexo-createblog/add_sshkey.png" alt="ssh公钥配置" style="zoom:35%;">
+</li>
+<li><p>安装环境 Node 、Hexo</p>
+<p><strong>安装Node.js</strong></p>
+<p>首先在自己的电脑上安装 Node.js，下载地址：<a href="https://nodejs.org/zh-cn/download/，可以安装" target="_blank" rel="noopener">https://nodejs.org/zh-cn/download/，可以安装</a> Stable 版本。</p>
+<p>安装完毕之后，确保环境变量配置好，能正常使用 <code>npm</code> 命令。</p>
+<p><strong>安装Hexo</strong></p>
+<p>接下来就需要安装 Hexo 了，这是一个博客框架，Hexo 官方还提供了一个命令行工具，用于快速创建项目、页面、编译、部署 Hexo 博客，所以在这之前我们需要先安装 Hexo 的命令行工具。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>初始化项目</p>
+<p>接下来我们使用 Hexo 的命令行创建一个项目，并将其在本地跑起来，整体跑通看看。</p>
+<p>首先使用如下命令创建项目：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo init &#123;name&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这里的 name 就是我们的项目名称，我们这里要创建为项目名为 Blog 的博客，命令如下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo init blog</span><br></pre></td></tr></table></figure>
+
+<p>这样我们的文件夹下面就会有 Hexo 的初始化文件。</p>
+<p>接下来我们首先进入新生成的文件夹里面，然后调用 Hexo 的 generate 命令，将 Hexo 编译生成 HTML 代码，命令如下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>这里也可以使用 hexo g 来简写。然后我们利用 Hexo 提供的 server 命令把博客在本地运行起来。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo server</span><br></pre></td></tr></table></figure>
+
+<p>输出结果：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">INFO  Start processing</span><br><span class="line">INFO  Hexo is running at http:&#x2F;&#x2F;localhost:4000 . Press Ctrl+C to stop.</span><br></pre></td></tr></table></figure>
+
+<p>此时访问 <a href="http://localhost:4000/" target="_blank" rel="noopener">http://localhost:4000</a> 即可显示出 Hexo 默认的主题信息博客。</p>
+<img src="/2020/04/27/2020-4-20-hexo-createblog/hello_hexo.png" alt="hexo_index" style="zoom:50%;">
+
+<p>那么此时我们的博客架子就已经出来了。这里关于生成和本地预览可以使用命令 <code>hexo s -g</code></p>
+</li>
+<li><p>常用的Hexo命令**</p>
+<img src="/2020/04/27/2020-4-20-hexo-createblog/hexo_command.png" alt="hexo_command" style="zoom:50%;">
+</li>
+<li><p>选择 Hexo 主题：NexT</p>
+<p>关于主题目前 GitHub 上有两个版本的 NexT 主题</p>
+<p>a：git clone <a href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="noopener">https://github.com/iissnan/hexo-theme-next</a> themes/next</p>
+<p>b：git clone <a href="https://github.com/theme-next/hexo-theme-next" target="_blank" rel="noopener">https://github.com/theme-next/hexo-theme-next</a> themes/next</p>
+<p>第二个是目前 NexT 的官方版本，会持续进行更新，所以我选择的是这个版本，关于对于 NexT 中的个性化设置也是基于此版本进行的。所以推荐你使用第二个版本。</p>
+<p>进入到项目文件夹 blog 中 <code>cd blog</code></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git clone https:&#x2F;&#x2F;github.com&#x2F;theme-next&#x2F;hexo-theme-next themes&#x2F;next</span><br></pre></td></tr></table></figure>
+
+<p>执行完毕后在 themes 文件下，有一个 next 的主题文件。</p>
+<p>修改我们项目目录下的配置文件_config.yml 文件，找到 theme 字段，修改为 next 即可，修改如下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">theme: next</span><br></pre></td></tr></table></figure>
+
+<p>执行：<code>hexo s -g</code> 即可生成静态页面至 public 目录下，并且可以进行本地预览。</p>
+</li>
+</ol>
+<pre><code>那么到此我们的第一步就已经完成了，喝口水，休息下，让我们来准备好下一步的配置吧。</code></pre><h3 id="2-个性化设置-NexT"><a href="#2-个性化设置-NexT" class="headerlink" title="2. 个性化设置 NexT"></a>2. 个性化设置 NexT</h3><p>​        <strong>修改前需要对项目配置文件和主题配置文件有一定的了解</strong></p>
+<p>​        我们针对于主题的个性话设置全在主题的配合文件下</p>
+<p>​        <img src="/2020/04/27/2020-4-20-hexo-createblog/next_config.png" alt="next_config" style="zoom:50%;"></p>
+<ol>
+<li><p>选择NexT的样式 <code>Scheme Settings</code> scheme: Pisces <code>sidebar:</code> position: left</p>
+</li>
+<li><p>代码块调整 <code>codeblock</code></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">codeblock: # 代码块特效</span><br><span class="line">  # Code Highlight theme</span><br><span class="line">  # Available values: normal | night | night eighties | night blue | night bright | solarized | solarized dark | galactic</span><br><span class="line">  # See: https:&#x2F;&#x2F;github.com&#x2F;chriskempson&#x2F;tomorrow-theme</span><br><span class="line">  highlight_theme: night bright</span><br><span class="line">  # Add copy button on codeblock</span><br><span class="line">  copy_button:</span><br><span class="line">    enable: true</span><br><span class="line">    # Show text copy result.</span><br><span class="line">    show_result: true</span><br><span class="line">    # Available values: default | flat | mac</span><br><span class="line">    style: mac</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>阅读进度百分比</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">back2top:</span><br><span class="line">  enable: true</span><br><span class="line">  # Back to top in sidebar.</span><br><span class="line">  sidebar: false</span><br><span class="line">  # Scroll percent label in b2t button.</span><br><span class="line">  scrollpercent: true #显示阅读百分比</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>github_banner 显示</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">github_banner:</span><br><span class="line">  enable: true</span><br><span class="line">  permalink: https:&#x2F;&#x2F;github.com&#x2F;Lofoer</span><br><span class="line">  title: Follow me on GitHub</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+<ol start="5">
+<li><p>添加Valine评论 <a href="https://leancloud.cn/dashboard/applist.html#/apps" target="_blank" rel="noopener">https://leancloud.cn/dashboard/applist.html#/apps</a></p>
+<p>为什么会选择这个评论呢，一个方面就是界面简单，第二个就是配置起来也超级方便，因为我们的博客是静态博客，那么对于评论的数据来说是动态的，需要存储的，那么我们就需要借助一个平台来存储评论，这个时候我们通过 LeanCloud 这个网站来进行，注册应用后，会有 appkey &amp; appid 我们只需要添加授权码和 ID 我们的博客就有评论的功能了。非常简单。</p>
+</li>
+</ol>
+<ol start="6">
+<li><p>添加分类页</p>
+<p><strong>分类页</strong>    </p>
+<p>分类功能和标签类似，一个文章可以对应某个分类，如果要增加分类页面可以使用如下命令创建：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo new page categories</span><br></pre></td></tr></table></figure>
+
+<p>然后同样地，会生成一个 source/categories/index.md 文件。</p>
+<p>我们可以自行添加一个 type 字段来指定页面的类型：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">type: categories</span><br><span class="line">comments: false</span><br></pre></td></tr></table></figure>
+
+<p><strong>添加文章</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo new hello-world</span><br></pre></td></tr></table></figure>
+
+<p>创建的文章会出现在 <code>source/_posts</code> 文件夹下，是 MarkDown 格式。如果你对 Makedown 不了解的话，那么先百度下啦。这里的编译器我推荐用 <code>Typora</code></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: tags</span><br><span class="line">date: 2020-04-19 01:23:51</span><br><span class="line">categories: hexo</span><br><span class="line">comments: false</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+<ol start="7">
+<li><p>添加搜索功能 hexo-generator-searchdb</p>
+<p>搜索页需要安装一个插件叫做：hexo-generator-searchdb</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm install hexo-generator-searchdb --save</span><br></pre></td></tr></table></figure>
+
+<p>在我们的项目<strong>hexo_config</strong>目录下配置如下内容：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">search:</span><br><span class="line">path: search.xml</span><br><span class="line">field: post</span><br><span class="line">format: html</span><br><span class="line">limit: 10000</span><br></pre></td></tr></table></figure>
+
+<p>主题<strong>next_config</strong>的配置文件下修改：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># Local Search</span><br><span class="line"># Dependencies: https:&#x2F;&#x2F;github.com&#x2F;theme-next&#x2F;hexo-generator-searchdb</span><br><span class="line">local_search:</span><br><span class="line">  enable: true</span><br><span class="line">  # If auto, trigger search by changing input.</span><br><span class="line">  # If manual, trigger search by pressing enter key or search button.</span><br><span class="line">  trigger: auto</span><br><span class="line">  # Show top n results per article, show all results by setting to -1</span><br><span class="line">  top_n_per_article: 1</span><br><span class="line">  # Unescape html strings to the readable one.</span><br><span class="line">  unescape: false</span><br><span class="line">  # Preload the search data when the page loads.</span><br><span class="line">  preload: false</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+<ol start="8">
+<li><p>侧边栏社交链接 &amp; 友情链接</p>
+<img src="/2020/04/27/2020-4-20-hexo-createblog/social_config.png" alt="social" style="zoom:38%;">
+
+<img src="/2020/04/27/2020-4-20-hexo-createblog/links_config.png" alt="links" style="zoom:50%;">
+</li>
+<li><p>显示评论数</p>
+<p>打开 <code>themes -&gt; next -&gt; languages -&gt; zh-CN.yml</code> 在 POST 标签下 comments.valine: 评论数 #可以自定义</p>
+</li>
+</ol>
+<ol start="10">
+<li><p>添加阅读时长 <code>npm install hexo-symbols-count-time</code></p>
+<p>在我们的项目<strong>hexo_config</strong>目录下配置如下内容：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 阅读时长</span><br><span class="line">symbols_count_time:</span><br><span class="line">symbols: true</span><br><span class="line">time: true</span><br><span class="line">total_symbols: true</span><br><span class="line">total_time: true</span><br><span class="line">exclude_codeblock: false</span><br><span class="line">awl: 2</span><br><span class="line">wpm: 275</span><br><span class="line">suffix: &quot;mins.&quot;</span><br></pre></td></tr></table></figure>
+
+<p>主题<strong>next_config</strong>的配置文件下修改：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># Dependencies: https:&#x2F;&#x2F;github.com&#x2F;theme-next&#x2F;hexo-symbols-count-time</span><br><span class="line">symbols_count_time:</span><br><span class="line">  separated_meta: true</span><br><span class="line">  item_text_post: true</span><br><span class="line">  item_text_total: false</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+<ol start="11">
+<li><p>打赏</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">reward:</span><br><span class="line">  wechatpay: &#x2F;images&#x2F;wechatpay.jpeg</span><br><span class="line">  #alipay: &#x2F;images&#x2F;alipay.png</span><br><span class="line">  #paypal: &#x2F;images&#x2F;paypal.png</span><br><span class="line">  #bitcoin: &#x2F;images&#x2F;bitcoin.png</span><br><span class="line"> </span><br><span class="line"> reward_settings:</span><br><span class="line">  # If true, reward will be displayed in every article by default.</span><br><span class="line">  enable: true</span><br><span class="line">  animation: false</span><br><span class="line">  comment: 您的支持将鼓励我继续创作！</span><br></pre></td></tr></table></figure>
+
+<p>打赏设置 <code>comment</code> 是打赏的提示语，打赏的图片可以放在主题的 images 下。</p>
+</li>
+<li><p>图片显示</p>
+<p>图片显示，目前有很多是通过第三方的图片云来进行图片的存储，但是目前我这里是通过 Hexo 插件把图片上传到 GitHub 上进行显示的，从效率上看，使用 Makedown 来添加本地照片就能显示。下面就开始放大招具体说说怎么做。</p>
+<p><strong>第一步安装插件</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm install hexo-asset-image --save</span><br></pre></td></tr></table></figure>
+
+<p><strong>第二步打开 Hexo 配置文件</strong>_config.yml</p>
+<p> 找到 post_asset_folder，把这个选项从 false 改为 true</p>
+<p><strong>第三步修改 index.js 文件</strong></p>
+<p>/node_modules/hexo-asset-image/index.js js 文件 替换如下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"> &#39;use strict&#39;;</span><br><span class="line">var cheerio &#x3D; require(&#39;cheerio&#39;);</span><br><span class="line">     </span><br><span class="line">     &#x2F;&#x2F; http:&#x2F;&#x2F;stackoverflow.com&#x2F;questions&#x2F;14480345&#x2F;how-to-get-the-nth-occurrence-in-a-string</span><br><span class="line">     function getPosition(str, m, i) &#123;</span><br><span class="line">     return str.split(m, i).join(m).length;</span><br><span class="line">&#125;</span><br><span class="line">     </span><br><span class="line">     var version &#x3D; String(hexo.version).split(&#39;.&#39;);</span><br><span class="line">     hexo.extend.filter.register(&#39;after_post_render&#39;, function(data)&#123;</span><br><span class="line">     var config &#x3D; hexo.config;</span><br><span class="line">     if(config.post_asset_folder)&#123;</span><br><span class="line">             var link &#x3D; data.permalink;</span><br><span class="line">         if(version.length &gt; 0 &amp;&amp; Number(version[0]) &#x3D;&#x3D; 3)</span><br><span class="line">         var beginPos &#x3D; getPosition(link, &#39;&#x2F;&#39;, 1) + 1;</span><br><span class="line">         else</span><br><span class="line">         var beginPos &#x3D; getPosition(link, &#39;&#x2F;&#39;, 3) + 1;</span><br><span class="line">         &#x2F;&#x2F; In hexo 3.1.1, the permalink of &quot;about&quot; page is like &quot;...&#x2F;about&#x2F;index.html&quot;.</span><br><span class="line">         var endPos &#x3D; link.lastIndexOf(&#39;&#x2F;&#39;) + 1;</span><br><span class="line">    link &#x3D; link.substring(beginPos, endPos);</span><br><span class="line">     </span><br><span class="line">         var toprocess &#x3D; [&#39;excerpt&#39;, &#39;more&#39;, &#39;content&#39;];</span><br><span class="line">         for(var i &#x3D; 0; i &lt; toprocess.length; i++)&#123;</span><br><span class="line">         var key &#x3D; toprocess[i];</span><br><span class="line">     </span><br><span class="line">         var $ &#x3D; cheerio.load(data[key], &#123;</span><br><span class="line">             ignoreWhitespace: false,</span><br><span class="line">             xmlMode: false,</span><br><span class="line">             lowerCaseTags: false,</span><br><span class="line">             decodeEntities: false</span><br><span class="line">    &#125;);</span><br><span class="line">     </span><br><span class="line">         $(&#39;img&#39;).each(function()&#123;</span><br><span class="line">             if ($(this).attr(&#39;src&#39;))&#123;</span><br><span class="line">                 &#x2F;&#x2F; For windows style path, we replace &#39;\&#39; to &#39;&#x2F;&#39;.</span><br><span class="line">                 var src &#x3D; $(this).attr(&#39;src&#39;).replace(&#39;\\&#39;, &#39;&#x2F;&#39;);</span><br><span class="line">                 if(!&#x2F;http[s]*.*|\&#x2F;\&#x2F;.*&#x2F;.test(src) &amp;&amp;</span><br><span class="line">                 !&#x2F;^\s*\&#x2F;&#x2F;.test(src)) &#123;</span><br><span class="line">                 &#x2F;&#x2F; For &quot;about&quot; page, the first part of &quot;src&quot; can&#39;t be removed.</span><br><span class="line">                 &#x2F;&#x2F; In addition, to support multi-level local directory.</span><br><span class="line">                 var linkArray &#x3D; link.split(&#39;&#x2F;&#39;).filter(function(elem)&#123;</span><br><span class="line">                     return elem !&#x3D; &#39;&#39;;</span><br><span class="line">                 &#125;);</span><br><span class="line">                 var srcArray &#x3D; src.split(&#39;&#x2F;&#39;).filter(function(elem)&#123;</span><br><span class="line">                     return elem !&#x3D; &#39;&#39; &amp;&amp; elem !&#x3D; &#39;.&#39;;</span><br><span class="line">                 &#125;);</span><br><span class="line">                 if(srcArray.length &gt; 1)</span><br><span class="line">                     srcArray.shift();</span><br><span class="line">                 src &#x3D; srcArray.join(&#39;&#x2F;&#39;);</span><br><span class="line">                 $(this).attr(&#39;src&#39;, config.root + link + src);</span><br><span class="line">                 console.info&amp;&amp;console.info(&quot;update link as:--&gt;&quot;+config.root + link + src);</span><br><span class="line">                 &#125;</span><br><span class="line">             &#125;else&#123;</span><br><span class="line">                 console.info&amp;&amp;console.info(&quot;no src attr, skipped...&quot;);</span><br><span class="line">                 console.info&amp;&amp;console.info($(this));</span><br><span class="line">             &#125;</span><br><span class="line">         &#125;);</span><br><span class="line">         data[key] &#x3D; $.html();</span><br><span class="line">         &#125;</span><br><span class="line">     &#125;</span><br><span class="line">     &#125;);</span><br></pre></td></tr></table></figure>
+
+<p><strong>第四步使用</strong></p>
+<p>当我们使用 hexo 命令新建一篇文章时</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo new 文章名</span><br></pre></td></tr></table></figure>
+
+<p>在 source/_posts 文件下会生成一个后缀为.md 的文件和一个文章名的文件夹，我们在这个里面上传图片。</p>
+<p><strong>第五步使用图片</strong></p>
+<p>在 Makedown 中引用图片时候，注意文件路径节点是用文章名开头的相对路径，并不是图片的绝对路径，这里一定要注意。</p>
+<img src="/2020/04/27/2020-4-20-hexo-createblog/upload_img.png" alt="create_blog_solurl" style="zoom:60%;">
+
+<img src="/2020/04/27/2020-4-20-hexo-createblog/upload_image_example.png" style="zoom:50%;">
+
+<p><strong>图片使用相对于当前文件夹的图片路径。</strong></p>
+</li>
+</ol>
+<ol start="13">
+<li><p>修改详情文章的tag图标</p>
+<p>修改模板 <code>/themes/next/layout/_macro/post.swig</code>，搜索`，把#号替换成为 {i class=”fa fa-tags”}{/i} ‘{}’ -&gt; 替换为’&lt;&gt;’</p>
+</li>
+</ol>
+<ol start="14">
+<li><p>全局调整字体大小  themes\next\source\css_variables<code>下的</code>base.styl</p>
+<p>具体的修改内容如下：有需要的可以自行调整。</p>
+<img src="/2020/04/27/2020-4-20-hexo-createblog/update_css_font_config.png" style="zoom:50%;">
+
+<p>到此为止的话，我们关于 NexT 的这个主题的个性化修改目前就到这里了，目前的这个阶段已经完全满足了我们的博客的内容展示。后续的一定内容请一定要参考官方的修改配置</p>
+</li>
+<li><p>取消文章目录的归纳数字</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">toc:</span><br><span class="line">  enable: true</span><br><span class="line">  # Automatically add list number to toc.</span><br><span class="line">  number: false</span><br><span class="line">  # If true, all words will placed on next lines if header width longer then sidebar width.</span><br><span class="line">  wrap: false</span><br><span class="line">  # If true, all level of TOC in a post will be displayed, rather than the activated part of it.</span><br><span class="line">  expand_all: false</span><br><span class="line">  # Maximum heading depth of generated toc.</span><br><span class="line">  max_depth: 6</span><br></pre></td></tr></table></figure>
+
+<p>将number: 属性的true 改为 false。</p>
+</li>
+</ol>
+<h3 id="3-ToDoList："><a href="#3-ToDoList：" class="headerlink" title="3. ToDoList："></a>3. ToDoList：</h3><ul>
+<li><input disabled type="checkbox"> 待验证文章页面展示是否有效</li>
+<li><input disabled type="checkbox"> 自定义域名 &amp; 域名访问 ：目前通过注册域名和域名进行解析后，访问速度没有直接访问 lofoer.github.io速度快，所以暂时不跟博客进行绑定了。</li>
+<li><input disabled type="checkbox"> 文章加密： 参考 <a href="https://github.com/MikeCoder/hexo-blog-encrypt/blob/master/ReadMe.zh.md" target="_blank" rel="noopener">https://github.com/MikeCoder/hexo-blog-encrypt/blob/master/ReadMe.zh.md</a></li>
+</ul>
+<h3 id="4-部署到GitHub上"><a href="#4-部署到GitHub上" class="headerlink" title="4. 部署到GitHub上"></a>4. 部署到GitHub上</h3><ol>
+<li><p>关于部署我们需要知道我们的部署地址：它需要对应 GitHub 的一个仓库地址，这个信息需要我们配置。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># Deployment</span><br><span class="line">## Docs: https:&#x2F;&#x2F;hexo.io&#x2F;docs&#x2F;deployment.html</span><br><span class="line">deploy:</span><br><span class="line">  type: &#39;git&#39;</span><br><span class="line">  repo: https:&#x2F;&#x2F;github.com&#x2F;Lofoer&#x2F;Lofoer.github.io</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
+
+<p>目前这里的 repo，是填写我的，后续需要修改成你们自己的地址。</p>
+</li>
+<li><p>安装 Git 的部署插件：hexo-deployer-git</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+
+<p>安装完成后执行部署命令：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo d -g</span><br></pre></td></tr></table></figure>
+
+<img src="/2020/04/27/2020-4-20-hexo-createblog/hexo_blog_img.png" style="zoom:50%;">
+</li>
+<li><p><strong>设置部署脚本</strong></p>
+<p>在项目文件夹下面新建一个 deploy.sh 的脚本文件，内容如下：   </p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo generate</span><br><span class="line">hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>这样我们在部署的时候只需要执行：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sh deploy.sh</span><br></pre></td></tr></table></figure>
+
+<p>这样我们写完博客后可以完美的更新博客了，非常简单。你学会了吗？</p>
+<p><strong>特别说明：</strong> 每当我们完成了一个小的个性化设置的时候，不妨通过hexo命令在本地进行预览<code>hexo s -g</code> 看是否达到了自己的预期。</p>
+</li>
+</ol>
+<h3 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h3><ol>
+<li><p><strong>关于Hexo的问题：</strong></p>
+<p>一般我们在安装hexo 插件的时候不会出现什么问题，但是有时候就是安装不上插件，这个时候一般使我们的源出现了问题，如果你对源不了解，没关系，按照我的操作执行，都能解决。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm config set registry https:&#x2F;&#x2F;registry.npm.taobao.org</span><br></pre></td></tr></table></figure>
+
+<p>或者在安装插件前加上 <strong><code>sudo</code></strong></p>
+</li>
+<li><p>关于4000端口被占用问题：**</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo lsof -i :4000</span><br></pre></td></tr></table></figure>
+
+<p>输出结果为：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">COMMAND    PID   USER   FD   TYPE             DEVICE SIZE&#x2F;OFF NODE NAME</span><br><span class="line">Google     796 vivian   24u  IPv6 0x3f05d2f78b8f93ed      0t0  TCP localhost:52958-&gt;localhost:terabase (CLOSE_WAIT)</span><br><span class="line">Google     796 vivian   26u  IPv6 0x3f05d2f78b8f8e2d      0t0  TCP localhost:52959-&gt;localhost:terabase (CLOSE_WAIT)</span><br><span class="line">Google     796 vivian   30u  IPv6 0x3f05d2f78b8fbc2d      0t0  TCP localhost:52960-&gt;localhost:terabase (CLOSE_WAIT)</span><br><span class="line">Google     796 vivian   39u  IPv6 0x3f05d2f79de69e2d      0t0  TCP localhost:52961-&gt;localhost:terabase (CLOSE_WAIT)</span><br><span class="line">Google     796 vivian   61u  IPv6 0x3f05d2f79de6a3ed      0t0  TCP localhost:52962-&gt;localhost:terabase (CLOSE_WAIT)</span><br><span class="line">Google     796 vivian   85u  IPv6 0x3f05d2f79de6af6d      0t0  TCP localhost:52963-&gt;localhost:terabase (CLOSE_WAIT)</span><br><span class="line">node      2658 vivian   39u  IPv6 0x3f05d2f79de6d1ed      0t0  TCP *:terabase (LISTEN)</span><br></pre></td></tr></table></figure>
+
+<p>注意看node，就是这个PID端口 2658，如果释放这个端口？</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">kill -9 &#123;PID&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>{PID}</strong> 替换成你的被占用的PID号</p>
+</li>
+</ol>
+<p><strong>结束语：如果您通过我这边文章成功创建了属于自己的个人博客的话，那么不妨通过下面的打赏按钮对我进行支持！谢谢。</strong></p>
+<img src="/2020/04/27/2020-4-20-hexo-createblog/640.gif" style="zoom:5%;">
+
+]]></content>
+      <categories>
+        <category>hexo</category>
+      </categories>
+      <tags>
+        <tag>创建个人博客</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>如何创建属于自己的个人博客-实战篇</title>
     <url>/2020/04/27/create-blog/</url>
     <content><![CDATA[<p>趁着这次疫情在家自己搭建了一个个人博客，针对于 NexT 主题进行了多次优化。下面我将自己搭建的过程记录下来，为想要自己搭建博客的同学提供参考。</p>
 <a id="more"></a>
@@ -274,15 +537,23 @@
       </tags>
   </entry>
   <entry>
+    <title>product_design_part1</title>
+    <url>/2020/04/29/product-design-part1/</url>
+    <content><![CDATA[<h1 id="abnc"><a href="#abnc" class="headerlink" title="abnc"></a>abnc</h1>]]></content>
+      <categories>
+        <category>product</category>
+      </categories>
+      <tags>
+        <tag>B端产品</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>工薪家庭的股票投资-实战基本面篇</title>
     <url>/2020/04/29/record-stock-info/</url>
     <content><![CDATA[<div id="hexo-blog-encrypt" data-wpm="密码不正确，请重新输入！" data-whm="文章不能被校验, 不过您还是能看看解密后的内容！"><div class="hbe-input-container"><input type="password" id="hbePass" placeholder="该文章已加密, 请输入密码查看。" /><label>该文章已加密, 请输入密码查看。</label><div class="bottom-line"></div></div><script id="hbeData" type="hbeData" data-hmacdigest="f68f212934126458a2d910e7894e7639edb2f8c4ca39d31a35da37de6e26febe">c7ee5008d9bac50c3ce4529d36750b0d421c1a7f6d53426744158ab6efb12cac8292f05d3cb2eba3f4b0438563055734f24045709765d956811905348c8f52e32013eb6dd882410e822f41ce742a2669b52b55b7f78169bcced3db76878eb83ddff587d01af69b98659bd65328f372ab43435eda218c30781d86c20a259808736f2d866aab6953c316e183590801ccb4f4b4f6fda8350b6b0b5719fe276fd96bee029ea2cad9df9aaa1a7f228514bc9b5794d262a23dc3d2cfe30cc067bca01e7031fcfe1c1813b6944cf08e62f6307229d3a21409976a531cb791c9d0e443cbe846ca54df024cf69c2af1c2b917aba734eb140044023c958a11d586c9ce3ce2b8aa56faf41ba5c2d5b1c6df7575c1277f7cd8e566b02634423c9f0e9849e6c23310dba1cdc0ca3c654db0ce1dbe0a281af3afdd91bd4b918d55d07b1f4f5c50a75649af0ba3bda1cabf26d700654cf6c04addd19e89c3f03afcc2b10cc78a1c241dbce3c5d11aeb161e2c918e4557e219ed9e9d3445aa0e12bb850797bd0a1c71a5b51fe62fdc35d6b97e120a069f0aa6e83ea8cf089a0b6ad503623cc5b5d03c384d2a7cc799d3dd912e0a604daf701cc06673cae212358a840550750ce0b457afdf84a2029e730511a680047866e79cada282d9a1c4eb45504615d4b6f9483c9b1c0ec2ed1b54630f52d35acca6c4cdfb7fb5a2a0c5242ecdaf9996197015bbd7319fd201bca497d12316cdb2fd47403361ba88aab6060cd5bf7bd4175557e0786b3516434e44a9dc6cca7e1f20de9eaef7279dfbb2ef6de715ae8825bf655ad63644f96b3adb806cc11127f62e59fcf8115b5d783974ab264990b767369ddb8f4699502762603f133acf49b44d9be0c370bade15502008ef6f202b8bcc108b7a8727fb203d74c0c79b293bc70c20f6c217b9c4f4e4b5f47f07caae0d4314144a781fadd47c0b12202be0991950c6ca0b21c3361d7a4589347267f6e9451af2da1ffe01157510f7e2257dc884729f4c0db226f459b076bd2ba3c74c16c9e0d351ed3cc6db39c699d4f851368e068ba3ef3e11b6ace0950033aae3bdbcae262aabcf44fbbc880badf9e1c7cc27f6675c50a0ea19f863de4b63ee8c31e72e98f4de26bc098d43a57a444c758b5804c7cd08b0be60021eebdac22171aa76f802808f5018523164f13c3f54d46d14cf4712d5f4acfe68500376708b98feb438833938f195c57d0da9fb41d2e56c241dac7df665fe5c33b7e039970e61297bdc2c680132dd64a8e652d612a1ed556c24ca7413ff6bae4e8361be3ec8033b24a7e764610a8a78378e6537c7ef60076508474742028303f16a016042a571f0b328ad945b246bf46365ba7a742bc2cbc11489e6e2102d74c4c21b09668b4b4f28c867</script></div><script src="/lib/blog-encrypt.js"></script><link href="/css/blog-encrypt.css" rel="stylesheet" type="text/css">]]></content>
       <categories>
         <category>股票投资</category>
       </categories>
-      <tags>
-        <tag>股票操盘手</tag>
-      </tags>
   </entry>
   <entry>
     <title>工薪家庭的股票投资-实战技术分析篇</title>
@@ -291,8 +562,13 @@
       <categories>
         <category>股票投资</category>
       </categories>
-      <tags>
-        <tag>股票操盘手</tag>
-      </tags>
+  </entry>
+  <entry>
+    <title>stock_note1</title>
+    <url>/2020/04/29/stock-note1/</url>
+    <content><![CDATA[<div id="hexo-blog-encrypt" data-wpm="密码不正确，请重新输入！" data-whm="文章不能被校验, 不过您还是能看看解密后的内容！"><div class="hbe-input-container"><input type="password" id="hbePass" placeholder="该文章已加密, 请输入密码查看。" /><label>该文章已加密, 请输入密码查看。</label><div class="bottom-line"></div></div><script id="hbeData" type="hbeData" data-hmacdigest="b86ae361b7001cf3b56b49fba87fa23745cfa8944c20fd23758f1a63d01bf525">9d9788bd490a65f7aa12daec618c6f166c8a25634e70ea5cc3f202f9df345c205f7d24ce32c98c9a1275a85354dfc2bca5ef6543206ba758ada55e067c7f5c360bcf3dbd3a579ff64d179ccee34f93a73036321b718d58b5b11b7dc1570dae8c28a778f4ca7830b89f5bac073e61f78d48f757989cd594983d98d7f3997ac3778b821a0451c06842048ddc087766fe240fb1d435072fa7d1fc09306b9dc13f0365cddaf8005857283cd0fa85d1349a9725f7bc58304966f69ab577103c6d2ab79c47d32f05b470a656b6fd1505337732eee885bafa0db14fb4cf90530ba63534cf8733e9767f7d5e13904138eb517fe862b7dc25c2f1ea726a4a0bf9445a306a0cfb9939f42d26bcac23da585efc6aa8cfe535ab35ae4deeb7ce44e05dfb751ed381f2f47c48c56036a81c2e23b6f175be6928451ecece78f758e126caecbdd4b5802b4a1eb46dd7bdf3dc77690828957f379fdaf6b26a803a528df3a2a4d3d4d7639dda6636748449030a68f07625cbec78bcfda65f009a4f93c8bbde6f7591f022bb5d68852e262b7c7a1961d657ee2ce805497b51a181b79135b61a95766e5858bf0280e480fd5f7e4624942c16f6a1579c81e5ea40a277f0eda4f588f8ac19a240a378106b2ccca10c34f4c07ab49a8f2096df03f4389e36f708865490a0c85816f09d0d74b8bbf69c09a73a25abf8a8a3469b7acf5767788e2adc910554f469323fe37990c54e6d2c9022fff862a55b2d340415c8eb5ab1ac9f30b0e787de05b3b5f68dd5bf0de413da52d1d716c4434e67cbe20f4d28415b3b569e2b2a58b7a9c1dec761b766c45ec6aba2fd55e67e94bd86e09b733e2280c2bcd9ce34379b3967bf21d6d1fa2a81fbabc6dfedaf5c3401306d5f06730c167df476dbd6675dcb1a8e5a97684fce0cf0c4209481ee84e2439b79851935fb1db9965740fddc2846ddc903ac8af1f37278567bf35e99f03e9d8b7d527940b6a97541e8aae2ffbd6ea9b975666b39afe403d2cf8bc252bbf5844f8d30e17261eb7e2dd806da99bbddeb2a01e34f520e1aa56110684268775ad265fa2a20c3382e7f42522c4be109b857a8647d0eb7293f7b35673b4c10adbfddcb4170dc4d708e70896e9c241aa72ad3b2107bb7d029694d199a4c2d442f3df43b8a1bf3b083c2dd229bcd1a0000c3c601d42af60596bdd1d0ac5d05c01fc608b7731b18981a0216bad90af055f73d065d4c0f053f526fb719bec39ed6f5c75dc3b6068c0cb479f48e2d87b812eb6511b3a8fc65e59cd4d7b0da6f1c3e0ffe36f8f64fb77a3c75cb76f7c0068f9e32c5e4c8f7f3c961031a132145c4f4f29b0b144afbfe3f63594738d8b9ef49ed08ef36258e6c82a0d327be27221716d030b5ecb323741844e9724b0969a597dff6f7b923a9b4a5a714b053aa04e81b769e501d017e814417aed0d4b01b0b084da64148a428b78b3bd8ffe6237fcb0515ea6d3df33d5e4f02949f505dc93f8f7e7e9fbd5a995739b619d600999cf3f576e34a68205b46d899bede5650063248f150ec79b28afbefefd553728ed1be72708b0fda63872d54953edb9e7d0efbbb55b41a24cae7f509cc03008ab4950ee26d8e7fb3c361195e0166a33bf14b3907899c032950984c48ec77d7828e93eb88c73986fd1c639a06df9b89190460e38ee81ed32d1d25c5e3d711464a679fd5d87bfbb72497fa8bb7973f0fd400e8eb1a3f370fe280a0c7cb2a28750f1fb997cb22b3ac3dae67cc69ad11c8577dafbe32fb6c6ea0fb64b94f1ce71e7017d52b17c8fe3c7fcb85ecb5aee6ce52a75925</script></div><script src="/lib/blog-encrypt.js"></script><link href="/css/blog-encrypt.css" rel="stylesheet" type="text/css">]]></content>
+      <categories>
+        <category>股票投资</category>
+      </categories>
   </entry>
 </search>
