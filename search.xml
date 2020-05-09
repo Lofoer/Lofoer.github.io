@@ -312,6 +312,33 @@
       </tags>
   </entry>
   <entry>
+    <title>B端产品的体验设计方法与实践-理论篇</title>
+    <url>/2020/04/29/product-2020-4-29-B%E7%AB%AF%E4%BA%A7%E5%93%81/</url>
+    <content><![CDATA[<h3 id="B端产品概览"><a href="#B端产品概览" class="headerlink" title="B端产品概览"></a>B端产品概览</h3><ol>
+<li><p>C端、B端产品的区别</p>
+<p>要想知道C端和B端产品的区别，先要了解到人性宗罪，要用辩证的角度去看待。</p>
+<a id="more"></a>
+
+<p><strong>人性七宗罪</strong></p>
+<img src="/2020/04/29/product-2020-4-29-B%E7%AB%AF%E4%BA%A7%E5%93%81/人性七宗罪.png" style="zoom:40%;">
+
+<p>C端产品其实说白了就是解决个人人性问题，对比美团和饿了么APP，是不是想我人性的懒惰？对比什么抽奖，0元购，彩票等APP，是不是想到人性的贪婪？</p>
+<p>说到B端产品，那么我们常用的B端产品有哪些呢？你能举几个例子吗？</p>
+<img src="/2020/04/29/product-2020-4-29-B%E7%AB%AF%E4%BA%A7%E5%93%81/B端产品.png" style="zoom:40%;">
+
+
+
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>product</category>
+      </categories>
+      <tags>
+        <tag>B端产品经理</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>产品经理实战篇-规范信息架构</title>
     <url>/2020/05/07/product-2020-5-7-%E4%BF%A1%E6%81%AF%E6%9E%B6%E6%9E%84/</url>
     <content><![CDATA[<h3 id="1-认识产品信息架构"><a href="#1-认识产品信息架构" class="headerlink" title="1. 认识产品信息架构"></a>1. 认识产品信息架构</h3><ol>
@@ -323,7 +350,7 @@
 </li>
 <li><p>为何产品需要合理的信息架构？</p>
 <p>合理的信息架构，可以让我们的产品非常容易被用户理解，可以让用户在第一时间就对这个产品有一个简单的认知。通过下图，我们能够一目了然这个产品是用来做什么的。</p>
-<img src="/Users/vivian/Desktop/github_blog/source/_posts/product-2020-5-7-信息架构/为何产品需要合理的信息架构.png" style="zoom:35%;">
+<img src="/2020/05/07/product-2020-5-7-%E4%BF%A1%E6%81%AF%E6%9E%B6%E6%9E%84/为何产品需要合理的信息架构.png" style="zoom:35%;">
 
 <ul>
 <li><p>合理的信息架构能够让用户一眼就明白你的产品能做什么，大概怎么用。</p>
@@ -393,7 +420,7 @@
 </ul>
 </li>
 <li><p>如何更好的引导用户？</p>
-<img src="/Users/vivian/Desktop/github_blog/source/_posts/product-2020-5-7-信息架构/如何更好的引导用户.png" style="zoom:35%;">
+<img src="/2020/05/07/product-2020-5-7-%E4%BF%A1%E6%81%AF%E6%9E%B6%E6%9E%84/如何更好的引导用户.png" style="zoom:35%;">
 </li>
 <li><p>产出</p>
 <p>重新梳理得出新的信息架构</p>
@@ -454,7 +481,7 @@
 </ul>
 </li>
 <li>明确一个页面中的元素逻辑性与重要性<ul>
-<li><img src="/Users/vivian/Desktop/github_blog/source/_posts/product-2020-5-7-信息架构/明确一个页面中的元素逻辑性与重要性.png" style="zoom:40%;"></li>
+<li><img src="/2020/05/07/product-2020-5-7-%E4%BF%A1%E6%81%AF%E6%9E%B6%E6%9E%84/明确一个页面中的元素逻辑性与重要性.png" style="zoom:40%;"></li>
 </ul>
 </li>
 <li>绘制单一页面<ul>
@@ -463,33 +490,6 @@
 </ul>
 </li>
 </ul>
-</li>
-</ol>
-]]></content>
-      <categories>
-        <category>product</category>
-      </categories>
-      <tags>
-        <tag>B端产品经理</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>B端产品的体验设计方法与实践-理论篇</title>
-    <url>/2020/04/29/product-2020-4-29-B%E7%AB%AF%E4%BA%A7%E5%93%81/</url>
-    <content><![CDATA[<h3 id="B端产品概览"><a href="#B端产品概览" class="headerlink" title="B端产品概览"></a>B端产品概览</h3><ol>
-<li><p>C端、B端产品的区别</p>
-<p>要想知道C端和B端产品的区别，先要了解到人性宗罪，要用辩证的角度去看待。</p>
-<a id="more"></a>
-
-<p><strong>人性七宗罪</strong></p>
-<img src="/2020/04/29/product-2020-4-29-B%E7%AB%AF%E4%BA%A7%E5%93%81/人性七宗罪.png" style="zoom:40%;">
-
-<p>C端产品其实说白了就是解决个人人性问题，对比美团和饿了么APP，是不是想我人性的懒惰？对比什么抽奖，0元购，彩票等APP，是不是想到人性的贪婪？</p>
-<p>说到B端产品，那么我们常用的B端产品有哪些呢？你能举几个例子吗？</p>
-<img src="/2020/04/29/product-2020-4-29-B%E7%AB%AF%E4%BA%A7%E5%93%81/B端产品.png" style="zoom:40%;">
-
-
-
 </li>
 </ol>
 ]]></content>
