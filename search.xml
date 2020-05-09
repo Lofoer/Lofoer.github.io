@@ -442,8 +442,8 @@
 </li>
 <li><p>验证核心使用流程</p>
 <ul>
-<li>尽量保证根据树结构进行层级自上而下前进</li>
-<li>不连通层级间的跳跃，尽量发生在最后一步</li>
+<li><strong>尽量保证根据树结构进行层级自上而下前进</strong></li>
+<li><strong>不连通层级间的跳跃，尽量发生在最后一步</strong></li>
 </ul>
 </li>
 <li><p>考虑信息架构和交互构图的关系</p>
@@ -497,7 +497,7 @@
         <category>product</category>
       </categories>
       <tags>
-        <tag>B端产品经理</tag>
+        <tag>信息架构</tag>
       </tags>
   </entry>
   <entry>
