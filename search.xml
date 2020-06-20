@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>fund-2020-6-20-01</title>
+    <url>/2020/06/20/fund-2020-6-20-01/</url>
+    <content><![CDATA[<div id="hexo-blog-encrypt" data-wpm="密码不正确，请重新输入！" data-whm="文章不能被校验, 不过您还是能看看解密后的内容！"><div class="hbe-input-container"><input type="password" id="hbePass" placeholder="该文章已加密, 请输入密码查看。" /><label>该文章已加密, 请输入密码查看。</label><div class="bottom-line"></div></div><script id="hbeData" type="hbeData" data-hmacdigest="f9a9460efeb310cd8ac1aa2b2874db676f3ef2d6c2c3a4fb0c6ee05cab5e85ef">bdfb9c9d92667e113d674e67d34d075fbc26fa93541c879d347fa0781e13d991b53cf14699823ef4e54b0e6bd5760b1bbd72c2de0f2b1489ae053ac10b004e9b8deaa8642fc9f270b81808cb00a600ab9e8d03456624aec76c3633ee3b5fc8f7be1894432981b1b6b5e35dc42e234230a3b279863f690f31ea1f25e09659e45c213da92e7b17317a2a7719f2227ceadb4585b514bed401cb494f78d768cce186803c9c1a9f381e8b1d2b9ba50e271373</script></div><script src="/lib/blog-encrypt.js"></script><link href="/css/blog-encrypt.css" rel="stylesheet" type="text/css">]]></content>
+      <categories>
+        <category>基金投资</category>
+      </categories>
+      <tags>
+        <tag>认识基金和基金公司</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>如何创建属于自己的个人博客-实战篇</title>
     <url>/2020/04/27/hexo-2020-4-20-createblog/</url>
     <content><![CDATA[<p>趁着这次疫情在家自己搭建了一个个人博客，针对于 NexT 主题进行了多次优化。下面我将自己搭建的过程记录下来，为想要自己搭建博客的同学提供参考。</p>
