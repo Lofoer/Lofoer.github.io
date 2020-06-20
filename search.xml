@@ -323,6 +323,68 @@
       </tags>
   </entry>
   <entry>
+    <title>B端产品的体验设计方法与实践-理论篇</title>
+    <url>/2020/04/29/product-2020-4-29-B%E7%AB%AF%E4%BA%A7%E5%93%81/</url>
+    <content><![CDATA[<h3 id="B端产品概览"><a href="#B端产品概览" class="headerlink" title="B端产品概览"></a>B端产品概览</h3><ol>
+<li><p>C端、B端产品的区别</p>
+<p>要想知道C端和B端产品的区别，先要了解到人性宗罪，要用辩证的角度去看待。</p>
+<a id="more"></a>
+
+<p><strong>人性七宗罪</strong></p>
+<img src="/2020/04/29/product-2020-4-29-B%E7%AB%AF%E4%BA%A7%E5%93%81/人性七宗罪.png" style="zoom:40%;">
+
+<p>C端产品其实说白了就是解决个人人性问题，对比美团和饿了么APP，是不是想我人性的懒惰？对比什么抽奖，0元购，彩票等APP，是不是想到人性的贪婪？</p>
+<p>说到B端产品，那么我们常用的B端产品有哪些呢？你能举几个例子吗？</p>
+<img src="/2020/04/29/product-2020-4-29-B%E7%AB%AF%E4%BA%A7%E5%93%81/B端产品.png" style="zoom:40%;">
+
+
+
+</li>
+</ol>
+<p>B端产品与C端产品的需求：</p>
+<ol>
+<li><p>B端产品是满足企业的需求，C端产品是满足个人需求。</p>
+</li>
+<li><p>B端产品是满足一个群体，C端产品是满足个体。</p>
+</li>
+<li><p>B端产品是满足我们工作上的一些要求，C端产品是满足我们的生活。</p>
+<p>总结：2B产品，用于“企业”员工多人协作，用于完成工作任务的工具、系统、或者流程体系。</p>
+</li>
+</ol>
+<h3 id="B端产品设计思维"><a href="#B端产品设计思维" class="headerlink" title="B端产品设计思维"></a>B端产品设计思维</h3><ol>
+<li><p>平衡多方需求</p>
+<img src="/2020/04/29/product-2020-4-29-B%E7%AB%AF%E4%BA%A7%E5%93%81/B端产品设计思维.png" style="zoom:35%;">
+
+<p><strong>RPG计划：</strong></p>
+<p>一种高效贴合用户的方式，尽可能的接触到真实的用户，形成体验报告</p>
+<p>后设计时代：从以用户为中心的设计到参与式设计：需求的收集者/设计灵感的启发者/方案的决策者/</p>
+<p><strong>2B产品生态圈：</strong></p>
+<img src="/2020/04/29/product-2020-4-29-B%E7%AB%AF%E4%BA%A7%E5%93%81/2B 产品在垂直领域另找敲门砖.png" style="zoom:38%;">
+</li>
+<li><p>植入管理思维和工作方式</p>
+<ul>
+<li><p>通过一种流程化，可快速复制的方法，将管理思维外化为工作方式或工具，推行到组织内并获得效益的过程。</p>
+<p>管理思维（外化为流程）—&gt;工作方式（成为产品）—&gt;企业受益</p>
+</li>
+<li><p>工具是思维方式的载体</p>
+<p>通过行为改变用户的认知，改变思路</p>
+</li>
+<li><p>2B重视业务 &amp; 流程：需要了解业务，成为业务高手</p>
+</li>
+</ul>
+</li>
+<li><p>提高易用性、提高幸福感</p>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>product</category>
+      </categories>
+      <tags>
+        <tag>B端产品经理</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>产品经理实战篇-规范信息架构</title>
     <url>/2020/05/07/product-2020-5-7-%E4%BF%A1%E6%81%AF%E6%9E%B6%E6%9E%84/</url>
     <content><![CDATA[<h3 id="1-认识产品信息架构"><a href="#1-认识产品信息架构" class="headerlink" title="1. 认识产品信息架构"></a>1. 认识产品信息架构</h3><ol>
@@ -482,68 +544,6 @@
       </categories>
       <tags>
         <tag>信息架构</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>B端产品的体验设计方法与实践-理论篇</title>
-    <url>/2020/04/29/product-2020-4-29-B%E7%AB%AF%E4%BA%A7%E5%93%81/</url>
-    <content><![CDATA[<h3 id="B端产品概览"><a href="#B端产品概览" class="headerlink" title="B端产品概览"></a>B端产品概览</h3><ol>
-<li><p>C端、B端产品的区别</p>
-<p>要想知道C端和B端产品的区别，先要了解到人性宗罪，要用辩证的角度去看待。</p>
-<a id="more"></a>
-
-<p><strong>人性七宗罪</strong></p>
-<img src="/2020/04/29/product-2020-4-29-B%E7%AB%AF%E4%BA%A7%E5%93%81/人性七宗罪.png" style="zoom:40%;">
-
-<p>C端产品其实说白了就是解决个人人性问题，对比美团和饿了么APP，是不是想我人性的懒惰？对比什么抽奖，0元购，彩票等APP，是不是想到人性的贪婪？</p>
-<p>说到B端产品，那么我们常用的B端产品有哪些呢？你能举几个例子吗？</p>
-<img src="/2020/04/29/product-2020-4-29-B%E7%AB%AF%E4%BA%A7%E5%93%81/B端产品.png" style="zoom:40%;">
-
-
-
-</li>
-</ol>
-<p>B端产品与C端产品的需求：</p>
-<ol>
-<li><p>B端产品是满足企业的需求，C端产品是满足个人需求。</p>
-</li>
-<li><p>B端产品是满足一个群体，C端产品是满足个体。</p>
-</li>
-<li><p>B端产品是满足我们工作上的一些要求，C端产品是满足我们的生活。</p>
-<p>总结：2B产品，用于“企业”员工多人协作，用于完成工作任务的工具、系统、或者流程体系。</p>
-</li>
-</ol>
-<h3 id="B端产品设计思维"><a href="#B端产品设计思维" class="headerlink" title="B端产品设计思维"></a>B端产品设计思维</h3><ol>
-<li><p>平衡多方需求</p>
-<img src="/2020/04/29/product-2020-4-29-B%E7%AB%AF%E4%BA%A7%E5%93%81/B端产品设计思维.png" style="zoom:35%;">
-
-<p><strong>RPG计划：</strong></p>
-<p>一种高效贴合用户的方式，尽可能的接触到真实的用户，形成体验报告</p>
-<p>后设计时代：从以用户为中心的设计到参与式设计：需求的收集者/设计灵感的启发者/方案的决策者/</p>
-<p><strong>2B产品生态圈：</strong></p>
-<img src="/2020/04/29/product-2020-4-29-B%E7%AB%AF%E4%BA%A7%E5%93%81/2B 产品在垂直领域另找敲门砖.png" style="zoom:38%;">
-</li>
-<li><p>植入管理思维和工作方式</p>
-<ul>
-<li><p>通过一种流程化，可快速复制的方法，将管理思维外化为工作方式或工具，推行到组织内并获得效益的过程。</p>
-<p>管理思维（外化为流程）—&gt;工作方式（成为产品）—&gt;企业受益</p>
-</li>
-<li><p>工具是思维方式的载体</p>
-<p>通过行为改变用户的认知，改变思路</p>
-</li>
-<li><p>2B重视业务 &amp; 流程：需要了解业务，成为业务高手</p>
-</li>
-</ul>
-</li>
-<li><p>提高易用性、提高幸福感</p>
-</li>
-</ol>
-]]></content>
-      <categories>
-        <category>product</category>
-      </categories>
-      <tags>
-        <tag>B端产品经理</tag>
       </tags>
   </entry>
   <entry>
