@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>fund-2020-6-20-01</title>
+    <url>/2020/06/20/fund-2020-6-20-01/</url>
+    <content><![CDATA[<div id="hexo-blog-encrypt" data-wpm="密码不正确，请重新输入！" data-whm="文章不能被校验, 不过您还是能看看解密后的内容！"><div class="hbe-input-container"><input type="password" id="hbePass" placeholder="该文章已加密, 请输入密码查看。" /><label>该文章已加密, 请输入密码查看。</label><div class="bottom-line"></div></div><script id="hbeData" type="hbeData" data-hmacdigest="f9a9460efeb310cd8ac1aa2b2874db676f3ef2d6c2c3a4fb0c6ee05cab5e85ef">bdfb9c9d92667e113d674e67d34d075fbc26fa93541c879d347fa0781e13d991b53cf14699823ef4e54b0e6bd5760b1bbd72c2de0f2b1489ae053ac10b004e9b8deaa8642fc9f270b81808cb00a600ab9e8d03456624aec76c3633ee3b5fc8f7be1894432981b1b6b5e35dc42e234230a3b279863f690f31ea1f25e09659e45c213da92e7b17317a2a7719f2227ceadb4585b514bed401cb494f78d768cce186803c9c1a9f381e8b1d2b9ba50e271373</script></div><script src="/lib/blog-encrypt.js"></script><link href="/css/blog-encrypt.css" rel="stylesheet" type="text/css">]]></content>
+      <categories>
+        <category>基金投资</category>
+      </categories>
+      <tags>
+        <tag>认识基金和基金公司</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>如何创建属于自己的个人博客-实战篇</title>
     <url>/2020/04/27/hexo-2020-4-20-createblog/</url>
     <content><![CDATA[<p>趁着这次疫情在家自己搭建了一个个人博客，针对于 NexT 主题进行了多次优化。下面我将自己搭建的过程记录下来，为想要自己搭建博客的同学提供参考。</p>
@@ -312,17 +323,6 @@
       </tags>
   </entry>
   <entry>
-    <title>fund-2020-6-20-01</title>
-    <url>/2020/06/20/fund-2020-6-20-01/</url>
-    <content><![CDATA[<div id="hexo-blog-encrypt" data-wpm="密码不正确，请重新输入！" data-whm="文章不能被校验, 不过您还是能看看解密后的内容！"><div class="hbe-input-container"><input type="password" id="hbePass" placeholder="该文章已加密, 请输入密码查看。" /><label>该文章已加密, 请输入密码查看。</label><div class="bottom-line"></div></div><script id="hbeData" type="hbeData" data-hmacdigest="f9a9460efeb310cd8ac1aa2b2874db676f3ef2d6c2c3a4fb0c6ee05cab5e85ef">bdfb9c9d92667e113d674e67d34d075fbc26fa93541c879d347fa0781e13d991b53cf14699823ef4e54b0e6bd5760b1bbd72c2de0f2b1489ae053ac10b004e9b8deaa8642fc9f270b81808cb00a600ab9e8d03456624aec76c3633ee3b5fc8f7be1894432981b1b6b5e35dc42e234230a3b279863f690f31ea1f25e09659e45c213da92e7b17317a2a7719f2227ceadb4585b514bed401cb494f78d768cce186803c9c1a9f381e8b1d2b9ba50e271373</script></div><script src="/lib/blog-encrypt.js"></script><link href="/css/blog-encrypt.css" rel="stylesheet" type="text/css">]]></content>
-      <categories>
-        <category>基金投资</category>
-      </categories>
-      <tags>
-        <tag>认识基金和基金公司</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>B端产品的体验设计方法与实践-理论篇</title>
     <url>/2020/04/29/product-2020-4-29-B%E7%AB%AF%E4%BA%A7%E5%93%81/</url>
     <content><![CDATA[<h3 id="B端产品概览"><a href="#B端产品概览" class="headerlink" title="B端产品概览"></a>B端产品概览</h3><ol>
@@ -379,6 +379,110 @@
 ]]></content>
       <tags>
         <tag>B端产品经理</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>产品经理实战篇-流程设计</title>
+    <url>/2020/05/10/product-2020-5-10-%E6%B5%81%E7%A8%8B%E8%AE%BE%E8%AE%A1/</url>
+    <content><![CDATA[<h3 id="1-流程设计的重要性"><a href="#1-流程设计的重要性" class="headerlink" title="1. 流程设计的重要性"></a>1. 流程设计的重要性</h3><ol>
+<li><p>用户和产品的交互是什么？</p>
+<a id="more"></a>
+
+<ul>
+<li>用户通过某种流程完成任务</li>
+<li>交互设计师设计用户完成任务的方式</li>
+<li>总结：流程设计就是对用户和用户完成任务方式的整合</li>
+<li>根据用户使用流程进行页面设计</li>
+</ul>
+</li>
+<li><p>企业中的流程设计还需要考虑什么？</p>
+<ul>
+<li>以微信抢红包举例，用户想要完成的任务？<strong>抢红包</strong> ；产品真正想完成的业务任务？<strong>绑定银行卡</strong> </li>
+<li>总结：以不干扰用户使用流程的方式完成业务需求</li>
+</ul>
+</li>
+<li><p>优秀的流程设计有什么好处？</p>
+<ul>
+<li>增加任务的完成率。举例：通知消息的提醒开启</li>
+<li>让用户更方便的完成任务。举例：QQ消息提醒通过手势来进行关闭，清理掉那些不想读的未读消息。</li>
+<li>对错误的充分思考。举例：发布文章时，失误点击取消按钮后的二次确认提醒。</li>
+<li>夸张的业务完成度。举例：微信春晚发红包的企业业务目标。2天完成了2亿张银行卡的绑定工作。</li>
+</ul>
+</li>
+</ol>
+<h3 id="2-如何进行流程设计（上）"><a href="#2-如何进行流程设计（上）" class="headerlink" title="2. 如何进行流程设计（上）"></a>2. 如何进行流程设计（上）</h3><ol>
+<li><p>充分理解业务需求</p>
+<ul>
+<li>业务需要达成的商业目标</li>
+<li>业务受到那些技术和商务限制</li>
+<li>了解业务所需要的合作方</li>
+</ul>
+</li>
+<li><p>找到用户完成任务的所有接触点</p>
+<ul>
+<li><p>什么是接触点？接触点就是用户通过我们的产品看到了什么或者做了什么事情</p>
+</li>
+<li><p>接触点来自哪里？用户场景：基于用户模型，经验，用户调研的体验故事。=&gt;用户使用我们的产品完成任务的一个故事。举例：易信APP</p>
+<ol>
+<li>小明和平时一样，给在老家的妈妈打电话报平安，聊了15分钟，小明挂断了电话。</li>
+<li>小明看到剩余电话时长不多的提示，想想还有半个月才到小月时长更新，因此想了解下如何获取更多时长。</li>
+<li>小明通过如何获取更多时长的入口，了解到只要邀请好友加入APP，就能在本月获得额外时长赠送。</li>
+<li>小明想了想，觉得可以邀请公司中关系比较好的同时，于是通过微信把邀请链接发给了同事。</li>
+<li>为了确保同事下载注册APP帮助自己获得额外时长，小明在微信中简单介绍了一下APP，并告诉同事如何通过自己分享的链接帮助自己获得时长。</li>
+</ol>
+</li>
+<li><p>提炼接触点。</p>
+<img src="/2020/05/10/product-2020-5-10-%E6%B5%81%E7%A8%8B%E8%AE%BE%E8%AE%A1/找到用户完成任务的所有接触点.png" style="zoom:30%;">
+</li>
+<li><p>tips</p>
+<ul>
+<li>为了完成流程设计，需要构思的用户场景有多个。==&gt;学会合并同类项</li>
+<li>学会要顾及头尾，他们是最容易被遗漏的接触点<ol>
+<li>用户在朋友圈查看分享内容的第一个接触点？==&gt;展示分享的内容</li>
+<li>发布朋友前动态的最后一个接触点？ ==&gt;发布过后展示的内容</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<ol start="3">
+<li><p>梳理接触点</p>
+</li>
+<li><p>根据流程 设计 交互稿</p>
+</li>
+<li><p>处理异常流程</p>
+</li>
+</ol>
+<h3 id="3-流程设计与交互工作"><a href="#3-流程设计与交互工作" class="headerlink" title="3. 流程设计与交互工作"></a>3. 流程设计与交互工作</h3><ol>
+<li>流程设计与信息架构设计<ul>
+<li>信息架构设计决定这我们产品的主题功能</li>
+<li>核心流程帮助用户完成某一任务的</li>
+<li>信息架构调整</li>
+<li>完成所有流程设计</li>
+</ul>
+</li>
+</ol>
+<img src="/2020/05/10/product-2020-5-10-%E6%B5%81%E7%A8%8B%E8%AE%BE%E8%AE%A1/流程设计与交互工作.png" style="zoom:30%;">
+
+<ol start="2">
+<li><p>流程设计与用户场景</p>
+<ul>
+<li>目标用户</li>
+<li>业务目标</li>
+<li>用户体验目标</li>
+<li>核心：<strong>用户场景</strong></li>
+</ul>
+<img src="/2020/05/10/product-2020-5-10-%E6%B5%81%E7%A8%8B%E8%AE%BE%E8%AE%A1/流程设计与用户场景.png" style="zoom:30%;">
+
+
+
+</li>
+</ol>
+]]></content>
+      <tags>
+        <tag>流程设计</tag>
       </tags>
   </entry>
   <entry>
